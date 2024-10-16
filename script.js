@@ -1,3 +1,4 @@
+// script.js
 // Функция для управления избранным
 function toggleFavorite(dressId) {
   let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -111,16 +112,20 @@ function openImageModal(images, currentIndex) {
   closeButton.onclick = function(event) {
     event.stopPropagation(); // Предотвращаем всплытие события
     modal.style.display = 'none';
-    window.modalSwiper.destroy();
-    window.modalSwiper = null;
+    if (window.modalSwiper) {
+      window.modalSwiper.destroy();
+      window.modalSwiper = null;
+    }
   };
 
   // Закрытие модального окна при клике вне контента
   modal.onclick = function(event) {
     if (event.target === modal) {
       modal.style.display = 'none';
-      window.modalSwiper.destroy();
-      window.modalSwiper = null;
+      if (window.modalSwiper) {
+        window.modalSwiper.destroy();
+        window.modalSwiper = null;
+      }
     }
   };
 }
@@ -187,7 +192,7 @@ function createDressCard(dress) {
 
 // Функция для загрузки CSV и рендеринга карточек
 function loadDresses() {
-  Papa.parse('dresses.csv', {
+  Papa.parse('https://raw.githubusercontent.com/Jplanetd/Krakozabra/refs/heads/main/dresses.csv', {
     download: true,
     header: true,
     dynamicTyping: true,
