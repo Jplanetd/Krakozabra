@@ -1,0 +1,212 @@
+/* Общие стили */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+/* Стили для фильтров */
+.filters {
+  padding: 20px;
+  border: 1px solid #ddd;
+  margin: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.filter-group {
+  margin-bottom: 15px;
+}
+
+.filter-group h3 {
+  margin-bottom: 10px;
+}
+
+.filter-group label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#reset-filters {
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Стили для кнопки избранного */
+.favorites-toggle {
+  text-align: center;
+  margin: 20px;
+}
+
+#toggle-favorites {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Стили для сетки */
+.dress-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+/* Карточка платья */
+.dress-card {
+  position: relative;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.dress-card:hover {
+  transform: scale(1.02);
+}
+
+/* Изображение платья */
+.dress-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+/* Название платья */
+.dress-name {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Описание платья */
+.dress-description {
+  padding: 10px;
+}
+
+.dress-description p {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+}
+
+/* Теги платья */
+.dress-tags {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  background-color: #f9f9f9;
+}
+
+.dress-tags span {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+/* Иконка избранного */
+.favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.favorite-icon span {
+  font-size: 24px;
+  color: #aaa;
+  transition: color 0.3s;
+}
+
+.favorite-icon.active span {
+  color: red;
+}
+
+/* Hover эффект для иконки избранного */
+.favorite-icon:hover span {
+  color: red;
+}
+
+/* Стили для модального окна изображения */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+.image-modal .modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  background-color: #000;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.image-modal .modal-content .swiper-container {
+  width: 100%;
+  height: 80vh;
+}
+
+.image-modal img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.image-modal .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Стили для навигационных кнопок в модальном окне */
+.image-modal .swiper-button-next,
+.image-modal .swiper-button-prev {
+  color: #fff;
+  width: 44px;
+  height: 44px;
+}
+
+.image-modal .swiper-button-next::after,
+.image-modal .swiper-button-prev::after {
+  font-size: 24px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .dress-card {
+    width: 90%;
+  }
+
+  .filters {
+    margin: 10px;
+    padding: 15px;
+  }
+}
